@@ -1,0 +1,1068 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#170d2b">
+
+    <title>Happy Birthday Siomiii 💜</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #170d2b;
+            --bg-light: #211438;
+            --purple: #a879e8;
+            --purple-light: #d7b8ff;
+            --pink: #f0b8e5;
+            --white: #ffffff;
+            --text: #e9dff5;
+            --muted: #a99bbd;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--white);
+            font-family: 'DM Sans', sans-serif;
+            overflow-x: hidden;
+        }
+
+        button, a {
+            font: inherit;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            cursor: pointer;
+            border: none;
+        }
+
+        /* BACKGROUND */
+
+        .background-glow {
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+            background:
+                radial-gradient(ellipse at 75% 25%, #60328a35, transparent 45%),
+                radial-gradient(ellipse at 15% 75%, #a54caa20, transparent 40%),
+                var(--bg);
+        }
+
+        .stars {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .star {
+            position: absolute;
+            color: #d9baff;
+            animation: twinkle 3s infinite ease-in-out;
+        }
+
+        /* HEADER */
+
+        .header {
+            width: 100%;
+            max-width: 1250px;
+            margin: auto;
+            padding: 30px 35px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 25px;
+            letter-spacing: 3px;
+        }
+
+        .logo span {
+            color: var(--pink);
+        }
+
+        .header-label,
+        .army-badge {
+            font-size: 10px;
+            letter-spacing: 3px;
+            color: var(--muted);
+        }
+
+        .army-badge {
+            padding: 10px 17px;
+            border: 1px solid #ffffff25;
+            border-radius: 30px;
+            color: var(--purple-light);
+        }
+
+        /* HERO */
+
+        .hero {
+            max-width: 1250px;
+            min-height: 650px;
+            padding: 70px 35px 90px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .eyebrow {
+            color: var(--purple-light);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 4px;
+        }
+
+        .hero-symbol {
+            font-size: 45px;
+            color: var(--pink);
+            margin: 25px 0 10px;
+            animation: heartbeat 2s infinite;
+        }
+
+        .hero h1,
+        .final-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(45px, 6vw, 76px);
+            line-height: 1.12;
+            font-weight: 700;
+        }
+
+        .hero h1 span,
+        .final-section h2 span,
+        .section-heading h2 span,
+        .letter-card h2 span {
+            display: block;
+            background: linear-gradient(100deg, #e4c5ff, #b27ce7, #f4bce9);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .hero-description {
+            max-width: 430px;
+            margin-top: 25px;
+            line-height: 1.9;
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        .hero-buttons {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            margin-top: 35px;
+            flex-wrap: wrap;
+        }
+
+        .primary-button {
+            padding: 15px 25px;
+            border-radius: 30px;
+            color: #241432;
+            background: linear-gradient(120deg, #e6c4ff, #c08ae9);
+            font-weight: 700;
+            font-size: 12px;
+            transition: 0.3s;
+        }
+
+        .primary-button:hover,
+        .celebrate-button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px #b77ce755;
+        }
+
+        .primary-button span {
+            margin-left: 10px;
+        }
+
+        .secondary-button {
+            font-size: 12px;
+            color: var(--purple-light);
+        }
+
+        .hero-footer {
+            margin-top: 85px;
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+            font-size: 9px;
+            letter-spacing: 2px;
+            color: #867498;
+        }
+
+        /* HERO DECORATION */
+
+        .hero-decoration {
+            position: relative;
+            width: 100%;
+            max-width: 450px;
+            aspect-ratio: 1;
+            margin: auto;
+            display: grid;
+            place-items: center;
+        }
+
+        .orbit {
+            position: absolute;
+            border: 1px solid #d7b8ff35;
+            border-radius: 50%;
+        }
+
+        .orbit-one {
+            width: 85%;
+            height: 85%;
+            animation: rotate 25s linear infinite;
+        }
+
+        .orbit-two {
+            width: 65%;
+            height: 65%;
+            border-style: dashed;
+            animation: rotate 35s linear infinite reverse;
+        }
+
+        .central-heart {
+            width: 210px;
+            height: 210px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background:
+                radial-gradient(circle at 30% 25%, #d8aaff, #8e55bb 55%, #46255f);
+            box-shadow:
+                0 0 50px #a879e866,
+                inset 0 0 35px #ffffff30;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .central-heart span {
+            font-size: 115px;
+            color: #fff;
+            text-shadow: 0 0 25px #ffffff90;
+        }
+
+        .floating-star {
+            position: absolute;
+            color: #eccbff;
+            font-size: 30px;
+            animation: float 3s infinite ease-in-out;
+        }
+
+        .star-one { top: 10%; left: 20%; }
+        .star-two { top: 25%; right: 7%; animation-delay: 1s; }
+        .star-three { bottom: 12%; left: 17%; animation-delay: 2s; }
+        .star-four { bottom: 25%; right: 10%; animation-delay: 1.5s; }
+
+        .decoration-caption {
+            position: absolute;
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .decoration-caption span {
+            color: var(--purple-light);
+            font-size: 20px;
+            letter-spacing: 5px;
+        }
+
+        .decoration-caption small {
+            font-size: 9px;
+            letter-spacing: 4px;
+            color: var(--muted);
+        }
+
+        /* MESSAGE */
+
+        .message-section {
+            padding: 110px 25px;
+            background: #21143880;
+            text-align: center;
+        }
+
+        .section-heading h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(30px, 5vw, 48px);
+            margin-top: 20px;
+        }
+
+        .section-heading h2 span {
+            display: inline;
+        }
+
+        .section-heading p {
+            margin-top: 15px;
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        .quote-card {
+            max-width: 650px;
+            margin: 55px auto 0;
+            padding: 45px 35px;
+            border: 1px solid #d7b8ff25;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #ffffff0c, #a879e80c);
+        }
+
+        .quote-symbol {
+            font-family: Georgia, serif;
+            font-size: 70px;
+            color: var(--purple-light);
+            height: 55px;
+        }
+
+        .quote-card p {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(20px, 3vw, 27px);
+            line-height: 1.7;
+            color: var(--text);
+        }
+
+        .quote-card span {
+            display: block;
+            margin-top: 25px;
+            font-size: 9px;
+            letter-spacing: 3px;
+            color: var(--purple-light);
+        }
+
+        /* LETTER */
+
+        .letter-section {
+            padding: 120px 25px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .letter-card {
+            width: 100%;
+            max-width: 620px;
+            padding: 55px;
+            border-radius: 18px;
+            background: linear-gradient(145deg, #302044, #21152f);
+            border: 1px solid #ffffff20;
+            box-shadow: 0 25px 80px #00000030;
+        }
+
+        .letter-icon {
+            font-size: 40px;
+            margin-bottom: 25px;
+        }
+
+        .letter-card h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 43px;
+            margin: 20px 0 30px;
+        }
+
+        .letter-card h2 span {
+            display: inline;
+        }
+
+        .letter-card p {
+            color: #c3b4d2;
+            font-size: 13px;
+            line-height: 2;
+            margin-bottom: 20px;
+        }
+
+        .letter-signature {
+            color: var(--purple-light);
+            margin-top: 35px;
+            font-family: 'Playfair Display', serif;
+            font-size: 21px;
+            font-style: italic;
+        }
+
+        /* FINAL */
+
+        .final-section {
+            text-align: center;
+            padding: 120px 25px 100px;
+            background: radial-gradient(ellipse at center, #6e3a8730, transparent 65%);
+        }
+
+        .final-section h2 {
+            margin: 30px 0;
+            font-size: clamp(55px, 8vw, 95px);
+        }
+
+        .final-section h2 span {
+            display: inline;
+        }
+
+        .final-section p {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .celebrate-button {
+            margin-top: 35px;
+            padding: 16px 35px;
+            border-radius: 30px;
+            background: linear-gradient(120deg, #e4c5ff, #b77ce7);
+            color: #281638;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            transition: 0.3s;
+        }
+
+        .final-heart {
+            font-size: 45px;
+            margin-top: 45px;
+            animation: heartbeat 2s infinite;
+        }
+
+        /* FOOTER */
+
+        footer {
+            padding: 30px;
+            border-top: 1px solid #ffffff15;
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            flex-wrap: wrap;
+            color: #8e7c9f;
+            font-size: 9px;
+            letter-spacing: 2px;
+        }
+
+        /* MODAL */
+
+        .modal {
+            position: fixed;
+            inset: 0;
+            z-index: 10;
+            display: grid;
+            place-items: center;
+            padding: 20px;
+            background: #090511d9;
+            backdrop-filter: blur(10px);
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.4s;
+        }
+
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-card {
+            position: relative;
+            width: 100%;
+            max-width: 430px;
+            padding: 45px 35px;
+            text-align: center;
+            border-radius: 20px;
+            background: linear-gradient(145deg, #38234e, #21142f);
+            border: 1px solid #d7b8ff50;
+            transform: translateY(25px);
+            transition: 0.4s;
+        }
+
+        .modal.active .modal-card {
+            transform: translateY(0);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            color: white;
+            background: none;
+            font-size: 28px;
+        }
+
+        .modal-heart {
+            display: block;
+            font-size: 45px;
+            margin-bottom: 20px;
+        }
+
+        .modal-card h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 35px;
+            margin: 20px 0;
+        }
+
+        .modal-card p {
+            color: #cbbbd9;
+            font-size: 13px;
+            line-height: 2;
+        }
+
+        .modal-footer {
+            margin-top: 30px;
+            color: var(--purple-light);
+            letter-spacing: 4px;
+        }
+
+        /* ANIMATIONS */
+
+        @keyframes twinkle {
+            0%, 100% {
+                opacity: 0.2;
+                transform: scale(0.8);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.3);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.15);
+            }
+        }
+
+        @keyframes rotate {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 800px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding-top: 65px;
+            }
+
+            .hero-description {
+                margin-inline: auto;
+            }
+
+            .hero-buttons,
+            .hero-footer {
+                justify-content: center;
+            }
+
+            .hero-footer {
+                margin-top: 45px;
+            }
+
+            .hero-decoration {
+                max-width: 350px;
+                margin-top: 35px;
+            }
+
+            .central-heart {
+                width: 160px;
+                height: 160px;
+            }
+
+            .central-heart span {
+                font-size: 90px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .header {
+                padding: 22px 18px;
+            }
+
+            .header-label {
+                display: none;
+            }
+
+            .hero {
+                padding-inline: 20px;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .letter-card {
+                padding: 35px 25px;
+            }
+
+            .letter-card h2 {
+                font-size: 35px;
+            }
+
+            footer {
+                justify-content: center;
+                text-align: center;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="background-glow"></div>
+    <div class="stars" id="stars"></div>
+
+    <!-- HEADER -->
+
+    <header class="header">
+
+        <a href="#" class="logo">BTS <span>♡</span></a>
+
+        <span class="header-label">
+            A SPECIAL DAY FOR YOU
+        </span>
+
+        <div class="army-badge">
+            ARMY 💜
+        </div>
+
+    </header>
+
+
+    <main>
+
+        <!-- HERO -->
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <span class="eyebrow">
+                    ✦ TODAY IS YOUR SPECIAL DAY ✦
+                </span>
+
+                <div class="hero-symbol">♡</div>
+
+                <h1>
+                    Happy Birthday
+                    <span>Siomiii!</span>
+                </h1>
+
+                <p class="hero-description">
+                    Hoy el universo brilla un poquito más,
+                    porque es el día de una persona muy especial.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <button class="primary-button" id="openLetter">
+                        Abrir mi sorpresa
+                        <span>♡</span>
+                    </button>
+
+                    <a href="#message" class="secondary-button">
+                        Descubrir más ↓
+                    </a>
+
+                </div>
+
+                <div class="hero-footer">
+                    <span>✦ MADE WITH LOVE</span>
+                    <span>FOR OUR LITTLE STAR ✦</span>
+                </div>
+
+            </div>
+
+
+            <div class="hero-decoration">
+
+                <div class="orbit orbit-one"></div>
+                <div class="orbit orbit-two"></div>
+
+                <div class="central-heart">
+                    <span>♡</span>
+                </div>
+
+                <span class="floating-star star-one">✦</span>
+                <span class="floating-star star-two">✧</span>
+                <span class="floating-star star-three">✦</span>
+                <span class="floating-star star-four">♡</span>
+
+                <div class="decoration-caption">
+                    <span>보라해</span>
+                    <small>I PURPLE YOU</small>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- MENSAJE ESPECIAL -->
+
+        <section class="message-section" id="message">
+
+            <div class="section-heading">
+
+                <span class="eyebrow">
+                    A LITTLE REMINDER
+                </span>
+
+                <h2>
+                    You are our
+                    <span>beautiful star.</span>
+                </h2>
+
+                <p>
+                    Porque las personas especiales merecen momentos especiales.
+                </p>
+
+            </div>
+
+
+            <div class="quote-card">
+
+                <div class="quote-symbol">“</div>
+
+                <p>
+                    Incluso cuando el cielo esté nublado,
+                    nunca olvides que tienes tu propia luz
+                    para iluminar el mundo.
+                </p>
+
+                <span>
+                    — WITH LOVE, SIOMIII ♡
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- CARTA -->
+
+        <section class="letter-section">
+
+            <div class="letter-card">
+
+                <div class="letter-icon">💌</div>
+
+                <span class="eyebrow">
+                    A MESSAGE FOR YOU
+                </span>
+
+                <h2>
+                    Dear <span>Siomiii</span>,
+                </h2>
+
+                <p>
+                    Hoy es un día para celebrar lo increíble que eres.
+                    Esperamos que este nuevo capítulo de tu vida esté
+                    lleno de sonrisas, aventuras, sueños cumplidos
+                    y muchísimos momentos felices.
+                </p>
+
+                <p>
+                    Que nunca te falten razones para sonreír,
+                    personas que te quieran y canciones que te hagan
+                    sentir que puedes conquistar el mundo.
+                </p>
+
+                <p>
+                    Sigue brillando a tu manera, porque mereces
+                    todo lo bonito que la vida tiene para ofrecerte.
+                </p>
+
+                <div class="letter-signature">
+                    With love, always 💜
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FINAL -->
+
+        <section class="final-section">
+
+            <span class="eyebrow">
+                ONE MORE THING...
+            </span>
+
+            <h2>
+                Borahae,<br>
+                <span>Siomiii!</span>
+            </h2>
+
+            <p>
+                Que todos tus sueños se hagan realidad.
+                ¡Feliz cumpleaños! 💜
+            </p>
+
+            <button class="celebrate-button" id="celebrate">
+                ¡CELEBRAR! ✨
+            </button>
+
+            <div class="final-heart">
+                💜
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <span>
+            MADE WITH 💜 FOR SIOMIII
+        </span>
+
+        <span>
+            보라해 · BTS & ARMY
+        </span>
+
+    </footer>
+
+
+    <!-- MODAL DE SORPRESA -->
+
+    <div class="modal" id="letterModal">
+
+        <div class="modal-card">
+
+            <button class="close-modal" id="closeModal">
+                ×
+            </button>
+
+            <span class="modal-heart">
+                💜
+            </span>
+
+            <span class="eyebrow">
+                SPECIAL MESSAGE
+            </span>
+
+            <h2>
+                Happy Birthday!
+            </h2>
+
+            <p>
+                Siomiii, recuerda que eres una persona única,
+                especial y capaz de lograr cosas maravillosas.
+                ¡Disfruta muchísimo tu día!
+            </p>
+
+            <div class="modal-footer">
+                보라해 ♡
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        // ESTRELLAS DEL FONDO
+
+        const starsContainer = document.getElementById('stars');
+
+        for (let i = 0; i < 65; i++) {
+
+            const star = document.createElement('span');
+
+            star.classList.add('star');
+
+            star.textContent = Math.random() > 0.5 ? '✦' : '·';
+
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+
+            star.style.fontSize =
+                (Math.random() * 12 + 5) + 'px';
+
+            star.style.animationDelay =
+                Math.random() * 4 + 's';
+
+            star.style.animationDuration =
+                (Math.random() * 3 + 2) + 's';
+
+            starsContainer.appendChild(star);
+
+        }
+
+
+        // MODAL DE SORPRESA
+
+        const modal = document.getElementById('letterModal');
+
+        const openLetter = document.getElementById('openLetter');
+
+        const closeModal = document.getElementById('closeModal');
+
+
+        openLetter.addEventListener('click', () => {
+
+            modal.classList.add('active');
+
+        });
+
+
+        closeModal.addEventListener('click', () => {
+
+            modal.classList.remove('active');
+
+        });
+
+
+        modal.addEventListener('click', (e) => {
+
+            if (e.target === modal) {
+
+                modal.classList.remove('active');
+
+            }
+
+        });
+
+
+        document.addEventListener('keydown', (e) => {
+
+            if (e.key === 'Escape') {
+
+                modal.classList.remove('active');
+
+            }
+
+        });
+
+
+        // LLUVIA DE CORAZONES Y CONFETI
+
+        const celebrateButton = document.getElementById('celebrate');
+
+
+        function celebrate() {
+
+            const symbols = ['💜', '♡', '✦', '✨', '💖', '★'];
+
+            for (let i = 0; i < 90; i++) {
+
+                const particle = document.createElement('span');
+
+                particle.textContent =
+                    symbols[Math.floor(Math.random() * symbols.length)];
+
+                particle.style.position = 'fixed';
+
+                particle.style.left =
+                    Math.random() * 100 + 'vw';
+
+                particle.style.top = '-30px';
+
+                particle.style.zIndex = '20';
+
+                particle.style.pointerEvents = 'none';
+
+                particle.style.fontSize =
+                    (Math.random() * 18 + 10) + 'px';
+
+
+                document.body.appendChild(particle);
+
+
+                const duration = Math.random() * 2500 + 2500;
+
+                const movement = (Math.random() - 0.5) * 250;
+
+
+                particle.animate([
+
+                    {
+                        transform: 'translate(0, 0) rotate(0deg)',
+                        opacity: 1
+                    },
+
+                    {
+                        transform: `translate(${movement}px, 110vh) rotate(720deg)`,
+                        opacity: 0
+                    }
+
+                ], {
+
+                    duration: duration,
+                    easing: 'ease-in',
+                    fill: 'forwards'
+
+                });
+
+
+                setTimeout(() => {
+
+                    particle.remove();
+
+                }, duration);
+
+            }
+
+        }
+
+
+        celebrateButton.addEventListener('click', celebrate);
+
+    </script>
+
+</body>
+</html>
