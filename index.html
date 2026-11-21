@@ -4,21 +4,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#10091d">
-<title>Happy Birthday Siomiii 💜</title>
+<title>Feliz cumpleaños, Siomiii 💜</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
 
 <style>
 :root {
-    --bg: #10091d;
-    --purple: #9c65d8;
-    --light: #d9b7ff;
-    --pink: #e9b5df;
-    --white: #fff;
-    --muted: #b4a5c5;
+    --purple: #a78bfa;
+    --pink: #f3b8d6;
+    --dark: #171020;
+    --paper: #fffaff;
 }
 
 * {
@@ -32,696 +29,387 @@ html {
 }
 
 body {
-    background: var(--bg);
-    color: var(--white);
+    min-height: 100vh;
     font-family: 'DM Sans', sans-serif;
+    color: white;
+    background:
+        radial-gradient(circle at 15% 20%, #53327c 0, transparent 35%),
+        radial-gradient(circle at 85% 80%, #43245f 0, transparent 35%),
+        #170f23;
     overflow-x: hidden;
 }
 
-button, a {
-    font: inherit;
-}
-
-a {
-    color: inherit;
-    text-decoration: none;
-}
-
 button {
+    font-family: inherit;
     cursor: pointer;
-    border: none;
 }
 
-/* BACKGROUND */
+/* FONDO */
 
-body::before {
-    content: "";
+.background-stars {
     position: fixed;
     inset: 0;
-    z-index: -2;
-    background:
-        radial-gradient(circle at 15% 20%, #682e9b40, transparent 35%),
-        radial-gradient(circle at 85% 75%, #a54caa25, transparent 35%),
-        #10091d;
-}
-
-.stars {
-    position: fixed;
-    inset: 0;
-    z-index: -1;
     pointer-events: none;
     overflow: hidden;
+    z-index: 0;
 }
 
 .star {
     position: absolute;
-    color: #e8ceff;
-    animation: twinkle 3s infinite ease-in-out;
+    color: #fff;
+    opacity: .5;
+    animation: twinkle 3s infinite alternate;
 }
 
-/* HEADER */
-
-header {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 5;
-    padding: 25px 7%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #ffffff18;
-    background: #10091d50;
-    backdrop-filter: blur(10px);
+@keyframes twinkle {
+    from { opacity: .15; transform: scale(.7); }
+    to { opacity: .9; transform: scale(1.2); }
 }
 
-.logo {
-    font-weight: 800;
-    letter-spacing: 5px;
-    font-size: 23px;
-}
-
-.logo span {
-    color: var(--light);
-}
-
-.nav-links {
-    display: flex;
-    gap: 35px;
-    font-size: 11px;
-    color: var(--muted);
-    letter-spacing: 1px;
-}
-
-.nav-links a:hover {
-    color: white;
-}
-
-.army-label {
-    border: 1px solid #d9b7ff50;
-    color: var(--light);
-    padding: 9px 18px;
-    border-radius: 30px;
-    font-size: 10px;
-    letter-spacing: 2px;
-}
-
-/* HERO */
-
-.hero {
-    min-height: 780px;
-    padding: 150px 7% 90px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    gap: 50px;
-    max-width: 1450px;
-    margin: auto;
-}
-
-.hero-content {
+main {
     position: relative;
-    z-index: 2;
+    z-index: 1;
 }
 
-.eyebrow {
-    color: var(--light);
-    font-size: 10px;
-    letter-spacing: 4px;
-    font-weight: 700;
-}
+/* PORTADA */
 
-.hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(55px, 6.5vw, 90px);
-    line-height: 1.05;
-    margin-top: 25px;
-}
-
-.hero h1 span {
-    display: block;
-    background: linear-gradient(100deg, #f4d8ff, #b67ce9, #eab6e7);
-    color: transparent;
-    background-clip: text;
-    -webkit-background-clip: text;
-}
-
-.hero-description {
-    max-width: 450px;
-    color: var(--muted);
-    line-height: 1.9;
-    font-size: 14px;
-    margin-top: 25px;
-}
-
-.hero-buttons {
+.cover {
+    min-height: 100vh;
     display: flex;
-    gap: 20px;
+    flex-direction: column;
     align-items: center;
-    margin-top: 35px;
-    flex-wrap: wrap;
+    justify-content: center;
+    padding: 40px 20px;
+    text-align: center;
+    transition: opacity .8s, transform .8s;
 }
 
-.btn-primary {
-    padding: 16px 28px;
-    background: linear-gradient(120deg, #e6c5ff, #a76bd7);
-    color: #241334;
-    border-radius: 30px;
-    font-size: 12px;
-    font-weight: 800;
+.cover.hidden {
+    opacity: 0;
+    transform: translateY(-35px);
+    pointer-events: none;
+    position: absolute;
+    width: 100%;
+}
+
+.cover-label {
+    color: #e4c9ff;
+    letter-spacing: 5px;
+    font-size: 11px;
+    margin-bottom: 22px;
+}
+
+.cover h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(45px, 9vw, 85px);
+    line-height: 1.1;
+    margin-bottom: 12px;
+}
+
+.cover h1 span {
+    color: #d9b7ff;
+    font-style: italic;
+}
+
+.cover-description {
+    color: #d4c5df;
+    font-size: 14px;
+    margin-bottom: 35px;
+}
+
+.cover-photo {
+    width: min(100%, 480px);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 7px;
+    margin-bottom: 35px;
+    padding: 9px;
+    border: 1px solid #ffffff35;
+    border-radius: 18px;
+    background: #ffffff0c;
+    box-shadow: 0 15px 60px #0005;
+}
+
+.cover-photo img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 10px;
+    filter: grayscale(100%);
+    transition: .4s;
+}
+
+.cover-photo img:hover {
+    filter: grayscale(0%);
+    transform: translateY(-5px);
+}
+
+.open-button {
+    border: none;
+    border-radius: 50px;
+    padding: 15px 30px;
+    background: linear-gradient(120deg, #d9b7ff, #efb9dc);
+    color: #291638;
+    font-size: 14px;
+    font-weight: 700;
+    box-shadow: 0 7px 30px #d9b7ff40;
     transition: .3s;
 }
 
-.btn-primary:hover {
+.open-button:hover {
     transform: translateY(-4px);
-    box-shadow: 0 10px 35px #b77ce755;
+    box-shadow: 0 12px 35px #d9b7ff70;
 }
 
-.btn-secondary {
-    font-size: 12px;
-    color: var(--light);
-}
-
-/* GROUP PHOTO */
-
-.hero-image {
-    position: relative;
-}
-
-.hero-image::before {
-    content: "";
-    position: absolute;
-    inset: -15px;
-    border: 1px solid #d7b8ff45;
-    border-radius: 25px;
-    transform: rotate(4deg);
-}
-
-.hero-image img {
-    position: relative;
-    display: block;
-    width: 100%;
-    height: 450px;
-    object-fit: cover;
-    border-radius: 20px;
-    box-shadow: 0 20px 70px #0008;
-    filter: saturate(.9);
-}
-
-.image-caption {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    padding: 12px 18px;
-    background: #170d2bd9;
-    backdrop-filter: blur(10px);
-    border: 1px solid #ffffff30;
-    border-radius: 10px;
-    font-size: 10px;
+.cover-footer {
+    margin-top: 25px;
+    color: #bba8c9;
+    font-size: 11px;
     letter-spacing: 2px;
 }
 
-/* SECTION HEADINGS */
+/* CARTA */
+
+.letter-section {
+    display: none;
+    padding: 65px 20px 40px;
+    animation: appear 1s ease forwards;
+}
+
+.letter-section.show {
+    display: block;
+}
+
+@keyframes appear {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 
 .section-heading {
     text-align: center;
-    margin-bottom: 55px;
+    margin-bottom: 35px;
+}
+
+.section-heading small {
+    color: #d9b7ff;
+    letter-spacing: 4px;
+    font-size: 10px;
 }
 
 .section-heading h2 {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(35px, 5vw, 55px);
-    margin-top: 18px;
+    font-size: clamp(30px, 6vw, 48px);
+    margin-top: 10px;
 }
 
-.section-heading h2 span {
-    color: var(--light);
+.paper {
+    position: relative;
+    max-width: 720px;
+    margin: auto;
+    padding: clamp(28px, 6vw, 65px);
+    border-radius: 5px;
+    background:
+        linear-gradient(#fffaffef, #fffaffef),
+        repeating-linear-gradient(
+            transparent 0px,
+            transparent 34px,
+            #d8c9e4 35px
+        );
+    color: #42344b;
+    box-shadow: 0 20px 80px #0006;
 }
 
-.section-heading p {
-    color: var(--muted);
+.paper::before {
+    content: "💜";
+    position: absolute;
+    top: -25px;
+    right: 25px;
+    font-size: 43px;
+    transform: rotate(15deg);
+}
+
+.paper-date {
+    color: #9b7aaf;
+    font-size: 12px;
+    text-align: right;
+    margin-bottom: 35px;
+}
+
+.paper h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    color: #74508f;
+    margin-bottom: 25px;
+}
+
+.paper p {
+    font-size: 15px;
+    line-height: 2;
+    margin-bottom: 17px;
+}
+
+.paper .signature {
+    margin-top: 35px;
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-style: italic;
+    color: #9166ad;
+}
+
+.paper .heart {
+    text-align: center;
+    font-size: 25px;
+    margin-top: 25px;
+}
+
+/* BTS */
+
+.bts-section {
+    max-width: 1000px;
+    margin: 90px auto 0;
+    padding: 0 20px;
+}
+
+.bts-title {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.bts-title small {
+    color: #d9b7ff;
+    letter-spacing: 4px;
+    font-size: 10px;
+}
+
+.bts-title h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(30px, 6vw, 45px);
+    margin: 10px 0;
+}
+
+.bts-title p {
+    color: #cbbbd7;
     font-size: 13px;
+}
+
+.members {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.member {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #ffffff25;
+    border-radius: 13px;
+    background: #ffffff0c;
+    transition: .35s;
+}
+
+.member:hover {
+    transform: translateY(-7px);
+    border-color: #d9b7ff;
+}
+
+.member img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1.15;
+    object-fit: cover;
+    filter: grayscale(100%);
+    transition: .5s;
+}
+
+.member:hover img {
+    filter: grayscale(0%);
+    transform: scale(1.04);
+}
+
+.member-name {
+    padding: 13px 8px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+/* CIERRE */
+
+.closing {
+    text-align: center;
+    padding: 100px 20px 70px;
+}
+
+.closing .symbol {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.closing h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(35px, 7vw, 60px);
+    color: #e1c3ff;
+}
+
+.closing p {
+    color: #d4c5df;
+    font-size: 14px;
     margin-top: 15px;
     line-height: 1.8;
 }
 
-/* MEMBERS */
-
-.members-section {
-    padding: 110px 7%;
-    background: linear-gradient(180deg, #21143190, #170d2b);
-}
-
-.members-grid {
-    max-width: 1150px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 22px;
-}
-
-.member-card {
-    position: relative;
-    overflow: hidden;
-    border-radius: 15px;
-    border: 1px solid #ffffff20;
-    background: #241633;
-    transition: .4s;
-}
-
-.member-card:hover {
-    transform: translateY(-10px);
-    border-color: #c99aff;
-    box-shadow: 0 15px 40px #a879e833;
-}
-
-.member-photo {
-    width: 100%;
-    height: 300px;
-    background-image: url('https://i.pinimg.com/originals/e6/91/3e/e6913e4ca2eecbefd1db64d18d4adb1d.jpg');
-    background-repeat: no-repeat;
-    transition: .5s;
-}
-
-.member-card:hover .member-photo {
-    transform: scale(1.06);
-}
-
-/* Collage: fila superior con 3 retratos */
-
-.rm .member-photo {
-    background-size: 300% 200%;
-    background-position: 0% 0%;
-}
-
-.jin .member-photo {
-    background-size: 300% 200%;
-    background-position: 50% 0%;
-}
-
-.suga .member-photo {
-    background-size: 300% 200%;
-    background-position: 100% 0%;
-}
-
-/* Collage: fila inferior con 4 retratos */
-
-.jhope .member-photo {
-    background-size: 400% 200%;
-    background-position: 0% 100%;
-}
-
-.jimin .member-photo {
-    background-size: 400% 200%;
-    background-position: 33.333% 100%;
-}
-
-.v .member-photo {
-    background-size: 400% 200%;
-    background-position: 66.666% 100%;
-}
-
-.jungkook .member-photo {
-    background-size: 400% 200%;
-    background-position: 100% 100%;
-}
-
-.member-info {
-    padding: 20px;
-    position: relative;
-    z-index: 1;
-    background: linear-gradient(transparent, #241633 10%);
-}
-
-.member-info small {
-    color: var(--light);
-    font-size: 9px;
-    letter-spacing: 3px;
-}
-
-.member-info h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 24px;
-    margin-top: 5px;
-}
-
-.member-info p {
-    color: var(--muted);
-    font-size: 10px;
-    margin-top: 7px;
-}
-
-/* SPECIAL MESSAGE */
-
-.special-section {
-    padding: 120px 7%;
-    text-align: center;
-}
-
-.special-card {
-    max-width: 850px;
-    margin: auto;
-    position: relative;
-    overflow: hidden;
-    padding: 70px 40px;
-    border: 1px solid #d7b8ff40;
-    border-radius: 25px;
-    background:
-        linear-gradient(#180e2bd9, #180e2beF),
-        url('https://static.kmedia.com.tw/prd/2024/1017/73CDB2A61921EEC15FC2D736E2959387/6d01534ffe177d6b65f0fabc469bae30.webp') center/cover;
-    box-shadow: 0 20px 80px #0005;
-}
-
-.special-card .big-heart {
-    font-size: 55px;
-    color: var(--pink);
-    animation: heartbeat 2s infinite;
-}
-
-.special-card h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(35px, 5vw, 55px);
-    margin: 20px 0;
-}
-
-.special-card h2 span {
-    color: var(--light);
-}
-
-.special-card p {
-    max-width: 600px;
-    margin: auto;
-    color: #d1c2df;
-    font-size: 13px;
-    line-height: 2;
-}
-
-/* QUOTE */
-
-.quote-section {
-    padding: 100px 25px;
-    text-align: center;
-    background: #ffffff06;
-}
-
-.quote {
-    max-width: 750px;
-    margin: auto;
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(24px, 4vw, 38px);
-    line-height: 1.6;
-}
-
-.quote span {
-    color: var(--light);
-}
-
-.quote-author {
-    color: var(--muted);
-    font-size: 10px;
-    letter-spacing: 3px;
-    margin-top: 30px;
-}
-
-/* LETTER */
-
-.letter-section {
-    padding: 110px 25px;
-    display: flex;
-    justify-content: center;
-}
-
-.letter-card {
-    max-width: 650px;
-    width: 100%;
-    padding: 55px;
-    border-radius: 20px;
-    background: linear-gradient(145deg, #322044, #21152f);
-    border: 1px solid #ffffff20;
-    box-shadow: 0 20px 70px #0005;
-}
-
-.letter-card .icon {
-    font-size: 40px;
-    margin-bottom: 25px;
-}
-
-.letter-card h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 40px;
-    margin: 20px 0 30px;
-}
-
-.letter-card h2 span {
-    color: var(--light);
-}
-
-.letter-card p {
-    color: #c7b8d5;
-    font-size: 13px;
-    line-height: 2;
-    margin-bottom: 18px;
-}
-
-.signature {
-    font-family: 'Playfair Display', serif;
-    color: var(--light);
-    font-size: 22px;
-    font-style: italic;
-    margin-top: 30px;
-}
-
-/* FINAL */
-
-.final-section {
-    padding: 120px 25px;
-    text-align: center;
-    background: radial-gradient(ellipse at center, #773d9a40, transparent 65%);
-}
-
-.final-section h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(60px, 9vw, 100px);
-    margin: 25px 0;
-    line-height: 1.1;
-}
-
-.final-section h2 span {
-    color: var(--light);
-}
-
-.final-section p {
-    color: var(--muted);
-    font-size: 13px;
-    line-height: 2;
-}
-
-.celebrate-button {
+.closing .borahae {
     margin-top: 35px;
-    padding: 17px 35px;
+    font-size: 20px;
+    color: #e8c9ff;
+    letter-spacing: 3px;
+}
+
+.back-top {
+    margin-top: 35px;
+    padding: 11px 22px;
+    border: 1px solid #d9b7ff70;
     border-radius: 30px;
-    background: linear-gradient(120deg, #e6c5ff, #a76bd7);
-    color: #241334;
-    font-weight: 800;
-    font-size: 11px;
-    letter-spacing: 2px;
+    color: white;
+    background: transparent;
+    font-size: 12px;
     transition: .3s;
 }
 
-.celebrate-button:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px #a879e866;
+.back-top:hover {
+    background: #ffffff18;
 }
-
-/* FOOTER */
 
 footer {
-    padding: 30px 7%;
-    border-top: 1px solid #ffffff15;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 15px;
-    color: #9e8cad;
-    font-size: 9px;
-    letter-spacing: 2px;
-}
-
-/* MODAL */
-
-.modal {
-    position: fixed;
-    inset: 0;
-    z-index: 20;
-    background: #090511e8;
-    backdrop-filter: blur(12px);
-    display: grid;
-    place-items: center;
     padding: 20px;
-    opacity: 0;
-    visibility: hidden;
-    transition: .4s;
-}
-
-.modal.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-.modal-content {
-    position: relative;
-    width: 100%;
-    max-width: 450px;
-    padding: 45px 35px;
-    background: linear-gradient(145deg, #39234f, #21142f);
-    border: 1px solid #d7b8ff60;
-    border-radius: 20px;
     text-align: center;
-    transform: translateY(25px);
-    transition: .4s;
-}
-
-.modal.active .modal-content {
-    transform: translateY(0);
-}
-
-.close-modal {
-    position: absolute;
-    top: 12px;
-    right: 20px;
-    color: white;
-    background: none;
-    font-size: 28px;
-}
-
-.modal-content .modal-heart {
-    font-size: 50px;
-    margin-bottom: 20px;
-}
-
-.modal-content h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 35px;
-    margin: 20px 0;
-}
-
-.modal-content p {
-    color: #d0c0df;
-    font-size: 13px;
-    line-height: 2;
-}
-
-/* ANIMATIONS */
-
-@keyframes twinkle {
-    0%, 100% {
-        opacity: .2;
-        transform: scale(.8);
-    }
-    50% {
-        opacity: 1;
-        transform: scale(1.3);
-    }
-}
-
-@keyframes heartbeat {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.15);
-    }
+    color: #a996b5;
+    font-size: 10px;
+    letter-spacing: 2px;
 }
 
 /* RESPONSIVE */
 
-@media(max-width: 950px) {
-    .hero {
-        grid-template-columns: 1fr;
-        text-align: center;
-        padding-top: 150px;
-    }
-
-    .hero-description {
-        margin-inline: auto;
-    }
-
-    .hero-buttons {
-        justify-content: center;
-    }
-
-    .hero-image {
-        max-width: 650px;
-        width: 100%;
-        margin: auto;
-    }
-
-    .members-grid {
+@media (max-width: 650px) {
+    .members {
         grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media(max-width: 600px) {
-    header {
-        padding: 20px;
-    }
-
-    .nav-links {
-        display: none;
-    }
-
-    .hero {
-        padding-inline: 22px;
-    }
-
-    .hero h1 {
-        font-size: 55px;
-    }
-
-    .hero-image img {
-        height: 300px;
-    }
-
-    .members-section {
-        padding-inline: 18px;
-    }
-
-    .members-grid {
         gap: 12px;
     }
 
-    .member-photo {
-        height: 220px;
+    .paper p {
+        font-size: 14px;
     }
 
-    .member-info {
-        padding: 14px;
-    }
-
-    .member-info h3 {
-        font-size: 19px;
-    }
-
-    .special-card {
-        padding: 55px 25px;
-    }
-
-    .letter-card {
-        padding: 35px 25px;
-    }
-
-    footer {
-        justify-content: center;
-        text-align: center;
+    .letter-section {
+        padding-top: 45px;
     }
 }
 
-@media(prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
-        animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
-        scroll-behavior: auto !important;
+@media (max-width: 380px) {
+    .cover-photo {
+        gap: 4px;
+        padding: 6px;
     }
 }
 </style>
@@ -729,425 +417,226 @@ footer {
 
 <body>
 
-<div class="stars" id="stars"></div>
-
-<!-- HEADER -->
-
-<header>
-    <a href="#" class="logo">BTS <span>♡</span></a>
-
-    <nav class="nav-links">
-        <a href="#inicio">INICIO</a>
-        <a href="#members">MEMBERS</a>
-        <a href="#message">MENSAJE</a>
-    </nav>
-
-    <span class="army-label">ARMY FOREVER 💜</span>
-</header>
-
+<div class="background-stars" id="stars"></div>
 
 <main>
 
-    <!-- HERO -->
+    <!-- PORTADA -->
+    <section class="cover" id="cover">
 
-    <section class="hero" id="inicio">
+        <div class="cover-label">A SPECIAL DAY FOR SOMEONE SPECIAL</div>
 
-        <div class="hero-content">
+        <h1>Happy Birthday<br><span>Siomiii!</span></h1>
 
-            <span class="eyebrow">
-                ✦ A SPECIAL DAY FOR AN ARMY ✦
-            </span>
+        <p class="cover-description">
+            Hoy el universo tiene una razón más para brillar 💜
+        </p>
 
-            <h1>
-                Happy Birthday
-                <span>Siomiii!</span>
-            </h1>
-
-            <p class="hero-description">
-                Hoy no es un día cualquiera...
-                Hoy celebramos a una persona increíble,
-                que merece brillar tanto como sus siete estrellas favoritas.
-                ¡Este pequeño regalo es para ti! 💜
-            </p>
-
-            <div class="hero-buttons">
-                <button class="btn-primary" id="openLetter">
-                    ABRIR MI SORPRESA ♡
-                </button>
-
-                <a href="#members" class="btn-secondary">
-                    CONOCER A LAS ESTRELLAS ↓
-                </a>
-            </div>
-
+        <div class="cover-photo">
+            <img src="https://bighitsmusic.com/assets/images/bts/members/rm.jpg" alt="RM">
+            <img src="https://bighitsmusic.com/assets/images/bts/members/jin.jpg" alt="Jin">
+            <img src="https://bighitsmusic.com/assets/images/bts/members/suga.jpg" alt="SUGA">
+            <img src="https://bighitsmusic.com/assets/images/bts/members/j-hope.jpg" alt="j-hope">
+            <img src="https://bighitsmusic.com/assets/images/bts/members/jimin.jpg" alt="Jimin">
+            <img src="https://bighitsmusic.com/assets/images/bts/members/v.jpg" alt="V">
+            <img src="https://bighitsmusic.com/assets/images/bts/members/jungkook.jpg" alt="Jungkook">
+            <div style="display:grid;place-items:center;font-size:35px;">💜</div>
         </div>
 
-        <div class="hero-image">
+        <button class="open-button" id="openLetter">
+            Abrir mi carta 💌
+        </button>
 
-            <img
-                src="https://stat.ameba.jp/user_images/20230921/20/bts-happy-orange/8d/ee/j/o1080100915341037864.jpg"
-                alt="Los siete integrantes de BTS"
-            >
-
-            <div class="image-caption">
-                SEVEN MEMBERS · ONE FOREVER LOVE 💜
-            </div>
-
+        <div class="cover-footer">
+            MADE WITH LOVE · ARMY EDITION
         </div>
 
     </section>
 
 
-    <!-- BTS MEMBERS -->
-
-    <section class="members-section" id="members">
+    <!-- CONTENIDO DE LA CARTA -->
+    <div class="letter-section" id="letter">
 
         <div class="section-heading">
-
-            <span class="eyebrow">
-                THE SEVEN STARS
-            </span>
-
-            <h2>
-                Your favorite <span>boys.</span>
-            </h2>
-
-            <p>
-                Siete talentos, siete personalidades y un grupo que
-                hace millones de corazones felices.
-            </p>
-
+            <small>UNA CARTA PARA TI</small>
+            <h2>Con mucho cariño 💜</h2>
         </div>
 
+        <article class="paper">
 
-        <div class="members-grid">
+            <div class="paper-date">Un día muy especial ✨</div>
 
-            <article class="member-card rm">
-                <div class="member-photo"></div>
-                <div class="member-info">
-                    <small>01 · LEADER</small>
-                    <h3>RM</h3>
-                    <p>Kim Namjoon</p>
-                </div>
-            </article>
-
-
-            <article class="member-card jin">
-                <div class="member-photo"></div>
-                <div class="member-info">
-                    <small>02 · WORLDWIDE HANDSOME</small>
-                    <h3>JIN</h3>
-                    <p>Kim Seokjin</p>
-                </div>
-            </article>
-
-
-            <article class="member-card suga">
-                <div class="member-photo"></div>
-                <div class="member-info">
-                    <small>03 · MIN YOONGI</small>
-                    <h3>SUGA</h3>
-                    <p>Min Yoongi</p>
-                </div>
-            </article>
-
-
-            <article class="member-card jhope">
-                <div class="member-photo"></div>
-                <div class="member-info">
-                    <small>04 · SUNSHINE</small>
-                    <h3>J-HOPE</h3>
-                    <p>Jung Hoseok</p>
-                </div>
-            </article>
-
-
-            <article class="member-card jimin">
-                <div class="member-photo"></div>
-                <div class="member-info">
-                    <small>05 · ANGEL VOICE</small>
-                    <h3>JIMIN</h3>
-                    <p>Park Jimin</p>
-                </div>
-            </article>
-
-
-            <article class="member-card v">
-                <div class="member-photo"></div>
-                <div class="member-info">
-                    <small>06 · VISUAL</small>
-                    <h3>V</h3>
-                    <p>Kim Taehyung</p>
-                </div>
-            </article>
-
-
-            <article class="member-card jungkook">
-                <div class="member-photo"></div>
-                <div class="member-info">
-                    <small>07 · GOLDEN MAKNAE</small>
-                    <h3>JUNG KOOK</h3>
-                    <p>Jeon Jungkook</p>
-                </div>
-            </article>
-
-        </div>
-
-    </section>
-
-
-    <!-- SPECIAL MESSAGE -->
-
-    <section class="special-section">
-
-        <div class="special-card">
-
-            <div class="big-heart">♡</div>
-
-            <span class="eyebrow">
-                TO OUR SPECIAL ARMY
-            </span>
-
-            <h2>
-                You are <span>Magic Shop.</span>
-            </h2>
+            <h3>Querida Siomiii:</h3>
 
             <p>
-                Así como BTS nos recuerda que siempre podemos encontrar
-                un lugar donde sentirnos queridos, esperamos que hoy
-                recibas todo el cariño que mereces.
-                Nunca dejes de soñar, sonreír y creer en ti.
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <!-- QUOTE -->
-
-    <section class="quote-section" id="message">
-
-        <p class="quote">
-            "No importa cuán oscuro sea el camino,
-            siempre habrá una <span>luz</span> esperando por ti."
-        </p>
-
-        <p class="quote-author">
-            WITH LOVE · BTS & ARMY 💜
-        </p>
-
-    </section>
-
-
-    <!-- BIRTHDAY LETTER -->
-
-    <section class="letter-section">
-
-        <div class="letter-card">
-
-            <div class="icon">💌</div>
-
-            <span class="eyebrow">
-                A LETTER FOR YOU
-            </span>
-
-            <h2>
-                Dear <span>Siomiii,</span>
-            </h2>
-
-            <p>
-                ¡Feliz cumpleaños, Siomiii!
-                Hoy queremos desearte un día tan bonito como tú,
-                lleno de sonrisas, sorpresas y momentos inolvidables.
+                ¡Feliz cumpleaños! 🎂💜
             </p>
 
             <p>
-                Que este nuevo año esté lleno de sueños cumplidos,
-                nuevas aventuras, personas maravillosas y muchas
-                canciones que te hagan feliz.
+                Hoy queremos tomarnos un momento para desearte
+                un día increíble, lleno de sonrisas, buenos momentos
+                y mucho cariño.
             </p>
 
             <p>
-                Que nunca pierdas esa luz que te hace única.
-                Recuerda que mereces todo lo bonito del mundo
-                y que siempre habrá motivos para seguir brillando.
+                Esperamos que este nuevo año de vida venga acompañado
+                de nuevas oportunidades, experiencias bonitas,
+                sueños cumplidos y muchísimas razones para ser feliz.
             </p>
 
             <p>
-                Y como diría nuestro querido BTS:
-                sigue creyendo en ti y amándote cada día más.
+                Nunca dejes de ser esa persona especial que eres.
+                Sigue disfrutando de las pequeñas cosas, persiguiendo
+                lo que te hace feliz y creando recuerdos que algún día
+                mirarás con una gran sonrisa.
+            </p>
+
+            <p>
+                Y, por supuesto, no podía faltar un pequeño detalle
+                para una ARMY: que nunca te falten tus canciones
+                favoritas, momentos inolvidables con BTS y muchas
+                razones para decir <strong>¡Borahae!</strong>
+            </p>
+
+            <p>
+                Que la vida te sorprenda de las maneras más bonitas.
+                Te deseamos lo mejor hoy y siempre. ¡Disfruta muchísimo
+                tu día porque te lo mereces!
             </p>
 
             <div class="signature">
-                Borahae, Siomiii! 💜
+                Con mucho cariño,<br>
+                tus amigos 💜
             </div>
 
-        </div>
+            <div class="heart">♡ ♡ ♡</div>
 
-    </section>
-
-
-    <!-- FINAL -->
-
-    <section class="final-section">
-
-        <span class="eyebrow">
-            LOVE YOURSELF · SPEAK YOURSELF
-        </span>
-
-        <h2>
-            Borahae,<br>
-            <span>Siomiii!</span>
-        </h2>
-
-        <p>
-            Seven boys, one beautiful universe.<br>
-            And today, the brightest star is YOU.
-        </p>
-
-        <button class="celebrate-button" id="celebrate">
-            LET'S CELEBRATE! ✨
-        </button>
-
-    </section>
-
-</main>
+        </article>
 
 
-<footer>
-    <span>MADE WITH 💜 FOR SIOMIII</span>
-    <span>BTS · ARMY · FOREVER</span>
-</footer>
+        <!-- LOS SIETE INTEGRANTES -->
+        <section class="bts-section">
+
+            <div class="bts-title">
+                <small>YOUR FAVORITE SEVEN</small>
+                <h2>Un poquito de BTS para ti</h2>
+                <p>Porque sabemos que ellos también hacen especial tu día. 💜</p>
+            </div>
+
+            <div class="members">
+
+                <div class="member">
+                    <img src="https://bighitsmusic.com/assets/images/bts/members/rm.jpg" alt="RM">
+                    <div class="member-name">RM</div>
+                </div>
+
+                <div class="member">
+                    <img src="https://bighitsmusic.com/assets/images/bts/members/jin.jpg" alt="Jin">
+                    <div class="member-name">JIN</div>
+                </div>
+
+                <div class="member">
+                    <img src="https://bighitsmusic.com/assets/images/bts/members/suga.jpg" alt="SUGA">
+                    <div class="member-name">SUGA</div>
+                </div>
+
+                <div class="member">
+                    <img src="https://bighitsmusic.com/assets/images/bts/members/j-hope.jpg" alt="j-hope">
+                    <div class="member-name">J-HOPE</div>
+                </div>
+
+                <div class="member">
+                    <img src="https://bighitsmusic.com/assets/images/bts/members/jimin.jpg" alt="Jimin">
+                    <div class="member-name">JIMIN</div>
+                </div>
+
+                <div class="member">
+                    <img src="https://bighitsmusic.com/assets/images/bts/members/v.jpg" alt="V">
+                    <div class="member-name">V</div>
+                </div>
+
+                <div class="member">
+                    <img src="https://bighitsmusic.com/assets/images/bts/members/jungkook.jpg" alt="Jungkook">
+                    <div class="member-name">JUNGKOOK</div>
+                </div>
+
+            </div>
+
+        </section>
 
 
-<!-- MODAL -->
+        <!-- DESPEDIDA -->
+        <section class="closing">
 
-<div class="modal" id="modal">
+            <div class="symbol">💜</div>
 
-    <div class="modal-content">
+            <h2>Shine, Siomiii!</h2>
 
-        <button class="close-modal" id="closeModal">×</button>
+            <p>
+                Que todos tus días tengan un poquito de magia,<br>
+                música y felicidad.
+            </p>
 
-        <div class="modal-heart">💜</div>
+            <div class="borahae">
+                BORahae FOREVER
+            </div>
 
-        <span class="eyebrow">
-            SPECIAL BIRTHDAY MESSAGE
-        </span>
+            <button class="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+                Volver al inicio ↑
+            </button>
 
-        <h2>Happy Birthday!</h2>
-
-        <p>
-            Siomiii, esperamos que hoy sonrías muchísimo,
-            que recibas todo el amor del mundo y que nunca
-            olvides lo especial que eres.
-            ¡Que todos tus sueños se hagan realidad!
-        </p>
-
-        <p style="margin-top:25px;color:#d9b7ff">
-            보라해 ♡
-        </p>
+        </section>
 
     </div>
 
-</div>
+</main>
+
+<footer>
+    MADE WITH 💜 FOR SIOMIII
+</footer>
 
 
 <script>
+// Estrellitas decorativas
+const stars = document.getElementById('stars');
 
-// STARS
-
-const starsContainer = document.getElementById('stars');
-
-for (let i = 0; i < 80; i++) {
-
+for (let i = 0; i < 45; i++) {
     const star = document.createElement('span');
 
     star.className = 'star';
-    star.textContent = Math.random() > .5 ? '✦' : '·';
+    star.textContent = Math.random() > 0.5 ? '✦' : '·';
 
     star.style.left = Math.random() * 100 + '%';
     star.style.top = Math.random() * 100 + '%';
+    star.style.fontSize = (Math.random() * 15 + 8) + 'px';
+    star.style.animationDelay = Math.random() * 3 + 's';
 
-    star.style.fontSize = Math.random() * 12 + 5 + 'px';
-    star.style.animationDelay = Math.random() * 4 + 's';
-    star.style.animationDuration = Math.random() * 3 + 2 + 's';
-
-    starsContainer.appendChild(star);
+    stars.appendChild(star);
 }
 
 
-// MODAL
+// Abrir la carta
+const openButton = document.getElementById('openLetter');
+const cover = document.getElementById('cover');
+const letter = document.getElementById('letter');
 
-const modal = document.getElementById('modal');
+openButton.addEventListener('click', () => {
 
-document.getElementById('openLetter').addEventListener('click', () => {
-    modal.classList.add('active');
-});
+    cover.classList.add('hidden');
 
-document.getElementById('closeModal').addEventListener('click', () => {
-    modal.classList.remove('active');
-});
+    setTimeout(() => {
+        cover.style.display = 'none';
 
-modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-        modal.classList.remove('active');
-    }
-});
+        letter.classList.add('show');
 
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        modal.classList.remove('active');
-    }
-});
-
-
-// CONFETTI
-
-function celebrate() {
-
-    const symbols = ['💜', '♡', '✦', '✨', '💖', '★'];
-
-    for (let i = 0; i < 100; i++) {
-
-        const particle = document.createElement('span');
-
-        particle.textContent =
-            symbols[Math.floor(Math.random() * symbols.length)];
-
-        particle.style.position = 'fixed';
-        particle.style.left = Math.random() * 100 + 'vw';
-        particle.style.top = '-30px';
-        particle.style.zIndex = '30';
-        particle.style.pointerEvents = 'none';
-        particle.style.fontSize = Math.random() * 18 + 12 + 'px';
-
-        document.body.appendChild(particle);
-
-        const duration = Math.random() * 2500 + 2500;
-        const movement = (Math.random() - .5) * 250;
-
-        particle.animate([
-            {
-                transform: 'translate(0, 0) rotate(0deg)',
-                opacity: 1
-            },
-            {
-                transform: `translate(${movement}px, 110vh) rotate(720deg)`,
-                opacity: 0
-            }
-        ], {
-            duration,
-            easing: 'ease-in',
-            fill: 'forwards'
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
         });
 
-        setTimeout(() => particle.remove(), duration);
-    }
-}
+    }, 700);
 
-document.getElementById('celebrate').addEventListener('click', celebrate);
-
+});
 </script>
 
 </body>
